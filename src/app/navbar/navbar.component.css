@@ -1,0 +1,11 @@
+.collapse{
+    justify-content: center;
+    background-color: #ffc107;
+    border-radius: 20px;
+}
+img{
+    width: 50px;
+}
+nav{
+    box-shadow: 2px 2px 1px #212529;
+}
