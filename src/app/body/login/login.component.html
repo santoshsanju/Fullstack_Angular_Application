@@ -1,12 +1,12 @@
 <div class="card">
-    <form action="">
+    <form action="" #formref="ngForm" (ngSubmit)="Login(formref.value)">
         <div class="formdiv">
             <div class="row">
                 <div class="col-4">
                     <label  class="form-label">Username/Email</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control" type="text" name="username/email" placeholder="Eg: Ramu / Ramu@gmail.com">
+                    <input class="form-control" type="text" name="username/email" placeholder="Eg: Ramu / Ramu@gmail.com" ngModel>
                 </div>
             </div>
             <div class="row">
@@ -14,10 +14,10 @@
                     <label  class="form-label">Password</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control" type="password" name="password" placeholder="password">
+                    <input class="form-control" type="password" name="password" placeholder="password" ngModel>
                 </div>
             </div>
         </div>
-        <button class="btn btn-dark w-100">Login</button>
+        <button class="btn btn-dark w-100" type="submit">Login</button>
     </form>
 </div>
