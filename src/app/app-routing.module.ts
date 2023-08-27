@@ -6,7 +6,7 @@ import { SignupComponent } from './body/signup/signup.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'/signup',pathMatch:'full'},
-  {path:"home",component:HomeComponent},
+  {path:"home/:username",component:HomeComponent},
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent},
   {path:"**",redirectTo:'/signup',pathMatch:'full'}

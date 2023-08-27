@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms'
+import { Router } from '@angular/router';
+import { UserserviceService } from 'src/app/userservice.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -7,7 +9,7 @@ import { FormBuilder,Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private builder:FormBuilder) { }
+  constructor(private builder:FormBuilder,private router:Router,private userService:UserserviceService) { }
   
   checkBox:string[]=[]
 
@@ -35,6 +37,8 @@ export class SignupComponent implements OnInit {
   onsignup(){
     this.signup.value.stack=this.checkBox
     console.log("value",this.signup.value)
+    this.router.navigate([`/home/${this.signup.value.username}`])
+    this.userService.usernamebh.next(this.signup.value.username)
   }
 
   addCheckBox(event:any){
