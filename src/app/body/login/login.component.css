@@ -1,9 +1,10 @@
 .card{
     width: 25%;
     margin: auto;
+    transform: translateY(100%);
     background-color: #ffc107;
     color: #212529;
-    box-shadow: -2px -2px 1px #212529;
+    box-shadow: -5px -5px 1px #212529;
 }
 .formdiv{
     padding: 7% 10% 1% 10%;
