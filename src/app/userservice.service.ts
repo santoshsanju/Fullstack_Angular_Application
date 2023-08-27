@@ -8,4 +8,5 @@ export class UserserviceService {
 
   constructor() { }
   usernamebh=new BehaviorSubject<any>('')
+  statusbh=new BehaviorSubject<boolean>(false)
 }

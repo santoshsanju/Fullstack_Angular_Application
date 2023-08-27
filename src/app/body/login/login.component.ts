@@ -19,5 +19,6 @@ export class LoginComponent implements OnInit {
     console.log("value",value)
     this.router.navigate([`/home/${value.username}`])
     this.userService.usernamebh.next(value.username)
+    this.userService.statusbh.next(true)
   }
 }

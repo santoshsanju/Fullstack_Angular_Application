@@ -1,5 +1,6 @@
 <nav class="nav">
     <a class="nav-link" [routerLink]="['/home',username]" routerLinkActive="active">Home</a>
-    <a class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
-    <a class="nav-link"  routerLink="/login" routerLinkActive="active">Login/Logout</a>
+    <a class="nav-link" routerLink="/signup" routerLinkActive="active" *ngIf="!status">Signup</a>
+    <a class="nav-link"  routerLink="/login" routerLinkActive="active" *ngIf="!status">Login</a>
+    <a class="nav-link"  routerLink="/login" routerLinkActive="active" (click)="logout()" *ngIf="status">Logout</a>
 </nav>
