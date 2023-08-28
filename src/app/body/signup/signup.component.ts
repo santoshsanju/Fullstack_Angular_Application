@@ -40,6 +40,7 @@ export class SignupComponent implements OnInit {
     this.router.navigate([`/home/${this.signup.value.username}`])
     this.userService.usernamebh.next(this.signup.value.username)
     this.userService.statusbh.next(true)
+    this.userService.databh.next(this.signup.value)
   }
 
   addCheckBox(event:any){

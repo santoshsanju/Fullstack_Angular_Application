@@ -11,9 +11,9 @@
 }
 .card.col-6{
     width: 50%;
-    height: 100px;
+    height: 150px;
     text-align: center;
-    padding-top: 2%;
+    justify-content: center;
     box-shadow: 1px 1px 10px #212529;
 }
 .card.col-6:nth-child(odd){
@@ -31,4 +31,7 @@
 .card.col-6:nth-child(3){
     background-color: #212529;
     color: #ffc107;
+}
+span{
+    font-size: medium;
 }

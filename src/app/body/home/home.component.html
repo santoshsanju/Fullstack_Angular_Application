@@ -1,16 +1,16 @@
 <div class="card mt-5">
     <div class="card-header image bg-warning">
-        <div class="background"><img src="" alt=""></div>
+        <div class="background"><img [src]="data.personal.pic" alt=""></div>
         <div class="profilepic"><img src="" alt=""></div>
     </div>
     <div class="details bg-dark">
         <div class="row">
-        <h1 class="card col-6">Name</h1>
-        <h1 class="card col-6">Email</h1>
-        <h1 class="card col-6">Date of Birth</h1>
-        <h1 class="card col-6">Gender</h1>
-        <h1 class="card col-6">Phone Number</h1>
-        <h1 class="card col-6">LinkedIn</h1>
+        <h3 class="card col-6">{{data.username}}</h3>
+        <h3 class="card col-6">{{data.email}}</h3>
+        <h3 class="card col-6">{{data.personal.dob}}</h3>
+        <h3 class="card col-6">{{data.personal.gender}}</h3>
+        <h3 class="card col-6">{{data.personal.phoneno}}</h3>
+        <h3 class="card col-6">{{data.url}}</h3>
         </div>
     </div>
 </div>
