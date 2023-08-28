@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 
 @Component({
@@ -11,6 +11,13 @@ export class NavbarComponent implements OnInit {
   constructor(private userService:UserserviceService) { }
   username:string=''
   status:any
+  @Input() getMessage:string=''
+
+  sendMessage:string='done'
+  @Output() myEvent=new EventEmitter()
+  send(){
+    this.myEvent.emit(this.sendMessage)
+  }
   ngOnInit(): void {
     this.userService.usernamebh.subscribe(value=>{
       this.username=value
