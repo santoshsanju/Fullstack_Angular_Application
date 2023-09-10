@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './body/home/home.component';
 import { LoginComponent } from './body/login/login.component';
 import { SignupComponent } from './body/signup/signup.component';
-import { CardsComponent } from './cards/cards.component';
+import { CardsComponent } from './body/cards/cards.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'/signup',pathMatch:'full'},
