@@ -9,6 +9,9 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/home',username]" routerLinkActive="active">Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cards" routerLinkActive="active">Cards</a>
+        </li>
         <li class="nav-item"*ngIf="!status">
           <a class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
         </li>

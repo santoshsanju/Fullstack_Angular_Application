@@ -10,6 +10,7 @@ import { HomeComponent } from './body/home/home.component';
 import { LoginComponent } from './body/login/login.component';
 import { SignupComponent } from './body/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardsComponent } from './cards/cards.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

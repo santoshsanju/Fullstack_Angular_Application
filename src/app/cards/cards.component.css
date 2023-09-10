@@ -1,0 +1,42 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+.row{
+    height: 100%;
+}
+.card-body{
+    background-color: #212529;
+    color: white;
+}
+.card-header{
+    background-color: #ffc107;
+}
+
+.card:nth-child(even) .card-body{
+    background-color: #ffc107;
+    color: black;
+}
+.card:nth-child(even) .card-header{
+    background-color: #212529;
+}
+
+/* .row .row-cols-sm-1 .row-cols-md-2{
+    position: relative;
+} */
+
+.but{
+    position: fixed;
+    top: 105px;
+    right: 0px;
+    z-index: 9999;
+}
+
+label{
+    margin-left: 10px;
+}
+
+.pagenation{
+    display: flex;
+    justify-content: center;
+}

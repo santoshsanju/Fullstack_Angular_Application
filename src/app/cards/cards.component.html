@@ -1,0 +1,51 @@
+<div class="filter">
+<form action="" #formref="ngForm" (ngSubmit)="search(formref.value)" >
+    <button class="btn but btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" *ngIf="status" (click)="change()">Filter</button>
+    <button class="btn but btn-dark" type="submit" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" *ngIf="!status">Search</button>
+<div class="offcanvas bg-dark offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-white" id="offcanvasRightLabel">Filter</h5>
+    <button type="button" class="bg-warning btn-close" data-bs-dismiss="offcanvas" aria-label="Close" (click)="change()"></button>
+  </div>
+  <div class="offcanvas-body bg-warning">
+    <h6>Search</h6><input type="text" class="form-control">
+    <h6 class="mt-2">Sort by price</h6>
+    <input type="radio" ngModel name="sortByPrice" id="low-to-high" value="low-to-high"><label>Low to high</label><br>
+    <input type="radio" ngModel name="sortByPrice" id="high-to-low" value="high-to-low"><label>High to low</label>
+    <h6 class="mt-2">Sort by name</h6>
+    <input type="radio" ngModel name="sortByName" id="a-to-z" value="a-z"><label>A to Z</label><br>
+    <input type="radio" ngModel name="sortByName" id="z-to-a" value="z-a"><label>Z to A</label>
+    <h6 class="mt-2">Sort by rating</h6>
+    <input type="radio" ngModel name="sortByRating" id="5-4" value="5-4"><label class="me-3">5-4</label>
+    <input type="radio" ngModel name="sortByRating" id="4-3" value="4-3"><label>4-3</label><br>
+    <input type="radio" ngModel name="sortByRating" id="3-2" value="3-2"><label class="me-3">3-2</label>
+    <input type="radio" ngModel name="sortByRating" id="2-0" value="2-0"><label>2-0</label>
+    <h6 class="mt-2">Sort by Category</h6>
+    <div *ngFor="let chat of checkbox">
+        <input type="checkbox" name={{chat}} value={{chat}} (click)="added($event)"><label>{{chat}}</label>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+<div class="row row-cols-sm-1 row-cols-md-2">
+    <div class="col card" *ngFor="let product of details">
+        <div class="row">
+            <div class="col-3 card-header">
+                <img src={{product.image}} alt="">
+            </div>
+            <div class="col-9 card-body">
+                <h6>{{product.title}}</h6>
+                <h6>{{product.category}}</h6>
+                <p>{{product.description}}</p>
+                <h6>{{product.price}}</h6>
+                <h6>{{product.rating.rate}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagenation">
+    <button class="btn btn-warning">Prev</button>
+    <span>Current</span>
+    <button class="btn btn-dark">Next</button>
+</div>
