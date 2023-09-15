@@ -1,6 +1,7 @@
 const exp=require("express")
 const app=exp()
-const port=5000
+const env=require("dotenv").config()
+const port=process.env.PORT
 app.listen(port,()=>{
     console.log(`Server is listening on ${port}`)
 })
