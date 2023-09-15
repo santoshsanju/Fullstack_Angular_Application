@@ -14,3 +14,7 @@ content-type: application/json
     "username":"kjakjs",
     "password":"kjdjdnal"
 }
+###
+GET  http://localhost:5000/user/allcards
+###
+GET  http://localhost:5000/user/logout

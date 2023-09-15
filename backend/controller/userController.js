@@ -5,6 +5,9 @@ const expressAsyncHandler=require("express-async-handler")
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 const env=require("dotenv").config()
+const privateRouterVerification=require("./privateRouter")
+const cookieParser = require("cookie-parser");
+userapp.use(cookieParser());
 userapp.use(exp.json())
 userapp.post("",expressAsyncHandler(async(req,res)=>{
     req.body.password=await bcrypt.hash(req.body.password,5)
@@ -13,14 +16,22 @@ userapp.post("",expressAsyncHandler(async(req,res)=>{
     res.send({message:"created successfully"})
 }))
 userapp.post("/login",expressAsyncHandler(async(req,res)=>{
-    let dbpassword=(await User.findOne({username:req.body.username})).password
+    let dbpassword=(await User.findOne({username:req.body.username}).exec()).password
     if(await bcrypt.compare(req.body.password,dbpassword)){
         let token=await jwt.sign({username:req.body.username},process.env.SECURITY,{expiresIn:"2d"})
-        res.cookie('jwt',token,{expires:new Date(Date.now()+2*24*60*60*1000),httpOnly:true})
-        res.send({message:"login succesfully",payload:token})
+        res.cookie('jwtToken',token,{expires:new Date(Date.now()+2*24*60*60*1000),httpOnly:true})
+        res.send({message:"login successfully",payload:token})
     }
     else{
         res.send({message:"Incorrect credentials"})
     }
+}))
+userapp.get("/allcards",privateRouterVerification,expressAsyncHandler(async(req,res)=>{
+    let data=await User.find().exec()
+    res.send({message:"all cards",payload:data})
+}))
+userapp.get("/logout",expressAsyncHandler(async(req,res)=>{
+    res.clearCookie("jwtToken")
+    res.send({message:"logout successfully"})
 }))
 module.exports=userapp
