@@ -1,0 +1,16 @@
+POST  http://localhost:5000/user
+content-type: application/json
+
+{
+    "username":"kjakjs",
+    "email":"aks@gmail.com",
+    "password":"kjdjdnal"
+}
+###
+POST  http://localhost:5000/user/login
+content-type: application/json
+
+{
+    "username":"kjakjs",
+    "password":"kjdjdnal"
+}
