@@ -34,4 +34,10 @@ userapp.get("/logout",expressAsyncHandler(async(req,res)=>{
     res.clearCookie("jwtToken")
     res.send({message:"logout successfully"})
 }))
+userapp.use((req,res,next)=>{
+    res.send({message:`${req.url} not found...`})
+})
+userapp.use((err,req,res,next)=>{
+    res.send({message:"error",payload:err.message})
+})
 module.exports=userapp
