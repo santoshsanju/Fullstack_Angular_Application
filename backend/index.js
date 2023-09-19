@@ -4,6 +4,17 @@ const env=require("dotenv").config()
 const port=process.env.PORT
 const db=process.env.DATABASE
 const mongoose=require("mongoose")
+// security http headers
+const helmet=require("helmet")
+app.use(helmet())
+// sanitized
+const mongoSanitize=require("express-mongo-sanitize")
+const xss=require("xss-clean")
+app.use(mongoSanitize())
+app.use(xss())
+// parameter pollution
+const hpp=require("hpp")
+app.use(hpp())
 const userapp=require("./controller/userController")
 app.use('/user',userapp)
 const productapp=require("./controller/productController")
