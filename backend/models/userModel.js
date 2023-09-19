@@ -5,6 +5,7 @@ const UserSchema=new mongoose.Schema({
     password:{type:String,required:[true,"password is required"]},
     dob:{type:Date},
     gender:{type:String},
+    role:{type:String,enum:["user","admin"],default:"user"},
     pic:{type:String},
     phoneno:{type:Number,minLength:[10,"min chart is 10"]},
     url:{type:String},

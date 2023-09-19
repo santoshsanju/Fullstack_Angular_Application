@@ -17,9 +17,11 @@ userapp.post("",expressAsyncHandler(async(req,res)=>{
 }))
 userapp.post("/login",expressAsyncHandler(async(req,res)=>{
     let dbpassword=(await User.findOne({username:req.body.username}).exec()).password
+    let dbrole=(await User.findOne({username:req.body.username}).exec()).role
     if(await bcrypt.compare(req.body.password,dbpassword)){
         let token=await jwt.sign({username:req.body.username},process.env.SECURITY,{expiresIn:"2d"})
         res.cookie('jwtToken',token,{expires:new Date(Date.now()+2*24*60*60*1000),httpOnly:true})
+        res.cookie('role',dbrole,{expires:new Date(Date.now()+2*24*60*60*1000),httpOnly:true})
         res.send({message:"login successfully",payload:token})
     }
     else{
@@ -32,6 +34,7 @@ userapp.get("/allcards",privateRouterVerification,expressAsyncHandler(async(req,
 }))
 userapp.get("/logout",expressAsyncHandler(async(req,res)=>{
     res.clearCookie("jwtToken")
+    res.clearCookie("role")
     res.send({message:"logout successfully"})
 }))
 userapp.use((req,res,next)=>{

@@ -2,8 +2,12 @@ const exp=require("express")
 const productapp=exp.Router()
 const Product=require("../models/productModel")
 const expressAsyncHandler=require("express-async-handler")
+const privateRouterVerification=require("./privateRouter")
+const authorizedRouterVerification=require("./authorizedRouter")
+const cookieParser = require("cookie-parser");
+productapp.use(cookieParser());
 productapp.use(exp.json())
-productapp.post("",(expressAsyncHandler(async(req,res)=>{
+productapp.post("",privateRouterVerification,authorizedRouterVerification,(expressAsyncHandler(async(req,res)=>{
     let doc=await Product.create(req.body)
     await doc.save()
     res.send({message:"created product successfully"})
